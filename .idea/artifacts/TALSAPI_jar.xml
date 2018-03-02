@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="TALSAPI:jar">
+    <output-path>$PROJECT_DIR$/../../../../Servers/プラグインテスト/plugins</output-path>
+    <root id="archive" name="TALSAPI.jar">
+      <element id="module-output" name="TALSAPI" />
+    </root>
+  </artifact>
+</component>
