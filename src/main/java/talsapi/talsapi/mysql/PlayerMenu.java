@@ -29,11 +29,9 @@ public class PlayerMenu {
             PreparedStatement statement = MySQLs.getConnection().prepareStatement("USE "+ MySQLs.getDetabase());
             statement.executeUpdate("CREATE TABLE IF NOT EXISTS `"+table+"` (" +
                     "`UUID` TEXT," +
-                    "`Class` int," +
-                    "`NickName` TEXT," +
-                    "`FishingLevel` int," +
-                    "`FishingEXP` double," +
-                    "`Rank` TEXT"+
+                    "`Particle` TEXT,"+
+                    "`Jewel` boolean," +//パーティクル
+                    "`Flame` boolean"+//パーティクル
                     ")");
 
             Bukkit.getConsoleSender().sendMessage(prefix+"§aLoad "+table+" TABLE");
@@ -81,14 +79,13 @@ public class PlayerMenu {
             {
                 //LOAD
                 PreparedStatement insert = MySQLs.getConnection().prepareStatement(
-                        "INSERT INTO " + table + "(UUID,Class,NickName,FishingLevel,FishingEXP,Rank) VALUE (?,?,?,?,?,?)");
+                        "INSERT INTO " + table + "(UUID,Particle,Jewel,Flame) VALUE (?,?,?,?)");
                 //セット
                 insert.setString(1,uuid.toString());
-                insert.setInt(2,0);
-                insert.setString(3, p.getName());
-                insert.setInt(4,1);
-                insert.setDouble(5,0.0);
-                insert.setString(6,"");
+                insert.setString(2,"none");
+
+                insert.setBoolean(3,false);//パーティクル
+                insert.setBoolean(4,false);//パーティクル
 
                 insert.executeUpdate();
 

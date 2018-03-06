@@ -12,7 +12,7 @@ public enum Classes {
     HUNTER(5,"Hunter"),
     ASSASSIN(6,"Assassin"),
     NECROMANCER(7,"Necromancer"),
-    PRIEST(8,"priest");
+    PRIEST(8,"Priest");
 
     private int classes;
     private String name;

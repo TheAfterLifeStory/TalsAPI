@@ -127,7 +127,7 @@ public class Necromancer {
                 insert.setString(1,uuid.toString());//UUID
                 insert.setInt(2,1);//LEVEL
                 insert.setDouble(3,0.0);//EXP
-                insert.setDouble(4,30.0);//MAXHealth
+                insert.setDouble(4,20.0);//MAXHealth
                 insert.setInt(5,10);//MAX MP
                 insert.setInt(6,0);//SP
                 insert.setInt(7,0);//ADD HP
@@ -157,6 +157,8 @@ public class Necromancer {
                 insert.setInt(27,1);//8
                 insert.setInt(29,1);//9
                 insert.setInt(31,1);//10
+
+                insert.executeUpdate();
 
             }
         } catch (SQLException e) {
