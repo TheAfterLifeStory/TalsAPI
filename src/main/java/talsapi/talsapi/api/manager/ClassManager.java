@@ -73,11 +73,11 @@ public class ClassManager {
                     "UPDATE "+classes.getName()+" SET LEVEL=? WHERE UUID=?");
             statment.setString(2,p.getUniqueId().toString());
             statment.setInt(1,level);
-            Bukkit.getServer().getPluginManager().callEvent(new TALSLevelChangeEvent(p));
             statment.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        Bukkit.getServer().getPluginManager().callEvent(new TALSLevelChangeEvent(p));
     }
 
     public int getLevel(Classes classes)

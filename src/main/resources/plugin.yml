@@ -1,3 +1,6 @@
 name: TALSAPI
 version: ${project.version}
 main: talsapi.talsapi.TALSAPI
+prefix: TALS
+authors: [ibuibu2056]
+description: TALS API
