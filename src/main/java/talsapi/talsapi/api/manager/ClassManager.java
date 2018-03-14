@@ -28,12 +28,21 @@ public class ClassManager {
         }
 
         try {
+            //ＥＸＰの取得
             PreparedStatement statment = MySQLs.getConnection().prepareStatement(
+                    "SELECT * FROM " + classes.getName() + " WHERE UUID=?");
+            statment.setString(1,p.getUniqueId().toString());
+            ResultSet results = statment.executeQuery();
+            results.next();
+            double oldexp= results.getInt("EXP");
+
+            //ＥＸＰを設定
+            statment = MySQLs.getConnection().prepareStatement(
                     "UPDATE "+classes.getName()+" SET EXP=? WHERE UUID=?");
             statment.setString(2,p.getUniqueId().toString());
             statment.setDouble(1,exp);
             statment.executeUpdate();
-            Bukkit.getServer().getPluginManager().callEvent(new TALSExpChangeEvent(p));
+            Bukkit.getServer().getPluginManager().callEvent(new TALSExpChangeEvent(p,oldexp,exp));
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -70,14 +79,22 @@ public class ClassManager {
         }
         try {
             PreparedStatement statment = MySQLs.getConnection().prepareStatement(
+                    "SELECT * FROM " + classes.getName() + " WHERE UUID=?");
+            statment.setString(1,p.getUniqueId().toString());
+            ResultSet results = statment.executeQuery();
+            results.next();
+            int oldlevel =  results.getInt("LEVEL");
+
+            //ＬＥＶＥＬを設定
+            statment = MySQLs.getConnection().prepareStatement(
                     "UPDATE "+classes.getName()+" SET LEVEL=? WHERE UUID=?");
             statment.setString(2,p.getUniqueId().toString());
             statment.setInt(1,level);
             statment.executeUpdate();
+            Bukkit.getServer().getPluginManager().callEvent(new TALSLevelChangeEvent(p,oldlevel,level));
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        Bukkit.getServer().getPluginManager().callEvent(new TALSLevelChangeEvent(p));
     }
 
     public int getLevel(Classes classes)

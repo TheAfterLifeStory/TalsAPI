@@ -6,10 +6,14 @@ import org.bukkit.entity.Player;
 
 public class TALSLevelChangeEvent extends Event {
 
-    Player p;
+    private Player p;
+    private int oldlevel;
+    private int newlevel;
 
-    public TALSLevelChangeEvent(Player p) {
+    public TALSLevelChangeEvent(Player p,int oldlevel,int newlevel) {
         this.p = p;
+        this.newlevel = newlevel;
+        this.oldlevel = oldlevel;
     }
 
     private static final HandlerList handlers = new HandlerList();
@@ -25,5 +29,15 @@ public class TALSLevelChangeEvent extends Event {
     public Player getPlayer()
     {
         return p;
+    }
+
+    public int getOldLevel()
+    {
+        return oldlevel;
+    }
+
+    public int getNewlevel()
+    {
+        return newlevel;
     }
 }
