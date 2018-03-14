@@ -88,7 +88,7 @@ public class MainDeta {
                 insert.setString(3, p.getName());
                 insert.setInt(4,1);
                 insert.setDouble(5,0.0);
-                insert.setString(6,"");
+                insert.setString(6,"none");
 
                 insert.executeUpdate();
 
