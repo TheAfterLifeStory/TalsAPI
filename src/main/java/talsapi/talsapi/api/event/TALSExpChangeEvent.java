@@ -8,12 +8,10 @@ public class TALSExpChangeEvent extends Event {
 
     private Player p;
     private double newexp;
-    private double oldexp;
 
-    public TALSExpChangeEvent(Player p,Double oldexp,Double newexp) {
+    public TALSExpChangeEvent(Player p,Double newexp) {
         this.p = p;
         this.newexp = newexp;
-        this.oldexp = oldexp;
     }
 
     private static final HandlerList handlers = new HandlerList();
@@ -29,11 +27,6 @@ public class TALSExpChangeEvent extends Event {
     public Player getPlayer()
     {
         return p;
-    }
-
-    public double getOldExp()
-    {
-        return oldexp;
     }
 
     public double getNewEXP()

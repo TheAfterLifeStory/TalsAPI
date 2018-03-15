@@ -28,21 +28,14 @@ public class ClassManager {
         }
 
         try {
-            //ＥＸＰの取得
-            PreparedStatement statment = MySQLs.getConnection().prepareStatement(
-                    "SELECT * FROM " + classes.getName() + " WHERE UUID=?");
-            statment.setString(1,p.getUniqueId().toString());
-            ResultSet results = statment.executeQuery();
-            results.next();
-            double oldexp= results.getInt("EXP");
 
             //ＥＸＰを設定
-            statment = MySQLs.getConnection().prepareStatement(
+            PreparedStatement statment = MySQLs.getConnection().prepareStatement(
                     "UPDATE "+classes.getName()+" SET EXP=? WHERE UUID=?");
             statment.setString(2,p.getUniqueId().toString());
             statment.setDouble(1,exp);
             statment.executeUpdate();
-            Bukkit.getServer().getPluginManager().callEvent(new TALSExpChangeEvent(p,oldexp,exp));
+            Bukkit.getServer().getPluginManager().callEvent(new TALSExpChangeEvent(p,exp));
         } catch (SQLException e) {
             e.printStackTrace();
         }
