@@ -1,7 +1,9 @@
 package talsapi.talsapi.api.classes;
 
+import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import talsapi.talsapi.MySQLs;
+import talsapi.talsapi.api.event.TALSStatsChangeEvent;
 import talsapi.talsapi.api.manager.enums.Classes;
 import talsapi.talsapi.api.manager.enums.Stats;
 
@@ -36,6 +38,7 @@ public class ClassInfoStats {
             statment.setString(2,p.getUniqueId().toString());
             statment.setInt(1,sp);
             statment.executeUpdate();
+            Bukkit.getServer().getPluginManager().callEvent(new TALSStatsChangeEvent(p,stats,sp));
         } catch (SQLException e) {
             e.printStackTrace();
         }

@@ -5,6 +5,7 @@ import org.bukkit.entity.Player;
 import talsapi.talsapi.MySQLs;
 import talsapi.talsapi.api.event.TALSExpChangeEvent;
 import talsapi.talsapi.api.event.TALSLevelChangeEvent;
+import talsapi.talsapi.api.event.TALSSkillPointChangeEvent;
 import talsapi.talsapi.api.manager.enums.Classes;
 
 import java.sql.PreparedStatement;
@@ -204,6 +205,7 @@ public class ClassManager {
             statment.setString(2,p.getUniqueId().toString());
             statment.setInt(1,arg1);
             statment.executeUpdate();
+            Bukkit.getServer().getPluginManager().callEvent(new TALSSkillPointChangeEvent(p,arg1));
         } catch (SQLException e) {
             e.printStackTrace();
         }
