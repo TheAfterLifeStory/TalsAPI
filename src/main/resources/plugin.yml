@@ -4,3 +4,5 @@ main: talsapi.talsapi.TALSAPI
 prefix: TALS
 authors: [ibuibu2056]
 description: TALS API
+database: true
+loadbefore: [TALSCOMMAND, TALSCore, TALSItem]
