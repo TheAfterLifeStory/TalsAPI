@@ -10,6 +10,14 @@ import talsapi.talsapi.listener.PlayerJoinSet;
 
 public final class TALSAPI extends JavaPlugin implements Listener {
 
+    /***************************************************
+     *                                                 *
+     *   Copyright                                     *
+     *           The After Life Story                  *
+     *                              Rights Reserved    *
+     *                                                 *
+     ***************************************************/
+
     private PlayerJoinSet pjs;
     public MySQLs mysql;
     private String prefix = "§e≪§cT§6A§aL§bS §9API§e≫ ";
