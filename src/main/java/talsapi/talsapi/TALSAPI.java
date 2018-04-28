@@ -14,7 +14,7 @@ public final class TALSAPI extends JavaPlugin implements Listener {
      *                                                 *
      *   Copyright                                     *
      *           The After Life Story                  *
-     *                              Rights Reserved    *
+     *                             Rights Reserved     *
      *                                                 *
      ***************************************************/
 
