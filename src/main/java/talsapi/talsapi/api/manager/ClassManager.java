@@ -250,7 +250,7 @@ public class ClassManager {
         if(classes.getClasses() == 3) return "§1§l◆§3§lガーディアン";//ガーディアン
         if(classes.getClasses() == 4) return "§2§l⚷§a§lシーフ";//チーフ
         if(classes.getClasses() == 5) return "§6✛§e§lハンター";//ハンター
-        if(classes.getClasses() == 6) return "§8§l§m━]§7§l§m━§f§l§m━ §4§lアサシン";//アサシン
+        if(classes.getClasses() == 6) return "§8§l§m━]§f§l§m━━§4§lアサシン";//アサシン
         if(classes.getClasses() == 7) return "§5§l☪§d§lネクロマンサー";//ネクロマンサー
         if(classes.getClasses() == 8) return "§3§l✞§b§lプリースト";//プリースト
 
