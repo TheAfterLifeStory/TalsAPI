@@ -22,4 +22,8 @@ public class PlayerDeta {
     public Classes getClasses() { return new PlayerManager(p).getClasses(); }
 
     public ClassInfo getClassInfo(Classes classes) { return new ClassInfo(p,classes);}
+
+    public void setGold(double gold) {new PlayerManager(p).setGold(gold);}
+
+    public double getGold() {return new PlayerManager(p).getGold();}
 }

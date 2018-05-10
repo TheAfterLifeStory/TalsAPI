@@ -33,7 +33,9 @@ public class MainDeta {
                     "`NickName` TEXT," +
                     "`FishingLevel` int," +
                     "`FishingEXP` double," +
-                    "`Rank` TEXT"+
+                    "`Rank` TEXT,"+
+                    "`Gold` double,"+
+                    "`Day` TEXT"+
                     ")");
 
             Bukkit.getConsoleSender().sendMessage(prefix+"§aLoad "+table+" TABLE");
@@ -81,7 +83,7 @@ public class MainDeta {
             {
                 //LOAD
                 PreparedStatement insert = MySQLs.getConnection().prepareStatement(
-                        "INSERT INTO " + table + "(UUID,Class,NickName,FishingLevel,FishingEXP,Rank) VALUE (?,?,?,?,?,?)");
+                        "INSERT INTO " + table + "(UUID,Class,NickName,FishingLevel,FishingEXP,Rank,Gold,Day) VALUE (?,?,?,?,?,?,?,?)");
                 //セット
                 insert.setString(1,uuid.toString());
                 insert.setInt(2,0);
@@ -89,6 +91,8 @@ public class MainDeta {
                 insert.setInt(4,1);
                 insert.setDouble(5,0.0);
                 insert.setString(6,"none");
+                insert.setDouble(7,0.0);
+                insert.setString(8,"none");
 
                 insert.executeUpdate();
 

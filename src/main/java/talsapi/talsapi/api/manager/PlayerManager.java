@@ -59,4 +59,36 @@ public class PlayerManager {
 
         return Classes.NONE;
     }
+
+    public void setGold(double gold)
+    {
+        try {
+            PreparedStatement statment = MySQLs.getConnection().prepareStatement(
+                    "UPDATE "+table+" SET GOLD=? WHERE UUID=?");
+            statment.setString(2,p.getUniqueId().toString());
+            statment.setDouble(1,gold);
+            statment.executeUpdate();
+            Bukkit.getServer().getPluginManager().callEvent(new TALSClassChangeEvent(p));
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public double getGold()
+    {
+        double gold = 0.0;
+        //CLASSを入手
+        try {
+            PreparedStatement statment = MySQLs.getConnection().prepareStatement(
+                    "SELECT * FROM " + table + " WHERE UUID=?");
+            statment.setString(1,p.getUniqueId().toString());
+            ResultSet results = statment.executeQuery();
+            results.next();
+            gold = results.getDouble("GOLD");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return gold;
+    }
 }

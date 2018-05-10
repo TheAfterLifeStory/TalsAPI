@@ -1,0 +1,16 @@
+Index: src/main/java/talsapi/talsapi/TALSAPI.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/main/java/talsapi/talsapi/TALSAPI.java	(revision 47cf813446e64851dfcd49558416d73245b3fffc)
++++ src/main/java/talsapi/talsapi/TALSAPI.java	(date 1524926205642)
+@@ -14,7 +14,7 @@
+      *                                                 *
+      *   Copyright                                     *
+      *           The After Life Story                  *
+-     *                              Rights Reserved    *
++     *                             Rights Reserved     *
+      *                                                 *
+      ***************************************************/
+ 
