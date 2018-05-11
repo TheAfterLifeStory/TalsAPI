@@ -58,7 +58,8 @@ public class Assassin {
                     "`skill9` boolean,"+
                     "`skillLevel9` int,"+
                     "`skill10` boolean,"+
-                    "`skillLevel10` int"+
+                    "`skillLevel10` int,"+
+                    "`Skill` TEXT"+
                     ")");
 
             Bukkit.getConsoleSender().sendMessage(prefix+"§aLoad "+table+" TABLE");
@@ -117,8 +118,10 @@ public class Assassin {
                                 "Skill7,SkillLevel7," +
                                 "Skill8,SkillLevel8," +
                                 "Skill9,SkillLevel9," +
-                                "Skill10,SkillLevel10)" +
-                                " VALUE (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+                                "Skill10,SkillLevel10," +
+                                "Skill"+
+                                ") " +
+                                "VALUE (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
                 //セット
                 insert.setString(1,uuid.toString());//UUID
                 insert.setInt(2,1);//LEVEL
@@ -153,6 +156,8 @@ public class Assassin {
                 insert.setInt(27,1);//8
                 insert.setInt(29,1);//9
                 insert.setInt(31,1);//10
+
+                insert.setString(32,"NONE");
 
                 insert.executeUpdate();
 

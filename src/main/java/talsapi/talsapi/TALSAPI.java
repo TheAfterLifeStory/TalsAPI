@@ -6,7 +6,12 @@ import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.entity.Player;
 import talsapi.talsapi.api.MySQLAPI;
 import talsapi.talsapi.api.PlayerDeta;
+import talsapi.talsapi.inter.CreateSkill;
 import talsapi.talsapi.listener.PlayerJoinSet;
+import talsapi.talsapi.listener.SkillListener;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public final class TALSAPI extends JavaPlugin implements Listener {
 
@@ -19,6 +24,7 @@ public final class TALSAPI extends JavaPlugin implements Listener {
      ***************************************************/
 
     private PlayerJoinSet pjs;
+    public List<CreateSkill> cs = new ArrayList<>();
     public MySQLs mysql;
     private String prefix = "§e≪§cT§6A§aL§bS §9API§e≫ ";
 
@@ -49,13 +55,13 @@ public final class TALSAPI extends JavaPlugin implements Listener {
 
         //クラスを読み込む
         pjs = new PlayerJoinSet();
+        getServer().getPluginManager().registerEvents(new SkillListener(), this);
 
         //Mysql読み込み失敗時
         MySQLs.PluginStop();
 
         //LOADメッセージ終了
         Bukkit.getConsoleSender().sendMessage(prefix+"§aFinish loading API");
-
     }
 
     @Override
@@ -64,5 +70,5 @@ public final class TALSAPI extends JavaPlugin implements Listener {
 
     public static PlayerDeta getPlayerDeta(Player p){ return new PlayerDeta(p); }
     public static MySQLAPI getMySQL(Player p){ return new MySQLAPI(); }
-
+    public static void setSkill(CreateSkill s){TALSAPI.getPlugin(TALSAPI.class).cs.add(s);}
 }
