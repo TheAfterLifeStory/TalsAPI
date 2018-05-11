@@ -59,7 +59,10 @@ public class SkillListener implements Listener {
 
         for(CreateSkill cs : plugin.cs)
         {
-            cs.castSkill(e.getPlayer(),SkillName,level);
+            if(OpenInventory.setItem(cs.addItemStack()) == item)
+            {
+                cs.castSkill(e.getPlayer(), SkillName, level);
+            }
         }
     }
 
@@ -121,7 +124,7 @@ public class SkillListener implements Listener {
 
         for(CreateSkill cs : plugin.cs)
         {
-            if(item == cs.addItemStack())
+            if(item == OpenInventory.setItem(cs.addItemStack()))
             {
                 e.getWhoClicked().getInventory().setItem(8,cs.addItemStack());
                 e.getWhoClicked().closeInventory();

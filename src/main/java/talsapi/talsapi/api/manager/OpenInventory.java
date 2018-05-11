@@ -25,18 +25,23 @@ public class OpenInventory {
                 continue;
             }
 
-            ItemStack item = cs.addItemStack();
-
-            ItemMeta meta = item.getItemMeta();
-
-            meta.setDisplayName("§d§m§r§3§2§l§l§r"+item.getItemMeta().getDisplayName());
-
-            item.setItemMeta(meta);
-
-            inv.addItem(item);
+            inv.addItem(setItem(cs.addItemStack()));
         }
         inv.addItem(new ItemStack(Material.BARRIER));
 
         p.openInventory(inv);
+    }
+
+    public static ItemStack setItem(ItemStack i2)
+    {
+        ItemStack item = i2;
+
+        ItemMeta meta = item.getItemMeta();
+
+        meta.setDisplayName("§d§m§r§3§2§l§l§r"+item.getItemMeta().getDisplayName());
+
+        item.setItemMeta(meta);
+
+        return item;
     }
 }
