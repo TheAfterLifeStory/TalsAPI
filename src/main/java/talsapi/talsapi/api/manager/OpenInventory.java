@@ -8,6 +8,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import talsapi.talsapi.TALSAPI;
 import talsapi.talsapi.api.classes.MainClass;
+import talsapi.talsapi.api.manager.enums.Skill;
 import talsapi.talsapi.inter.CreateSkill;
 
 public class OpenInventory {
@@ -25,20 +26,22 @@ public class OpenInventory {
                 continue;
             }
 
-            inv.addItem(setItem(cs.addItemStack()));
+            inv.addItem(setItem(cs.addItemStack(),cs.setSkill(),p));
         }
         inv.addItem(new ItemStack(Material.BARRIER));
 
         p.openInventory(inv);
     }
 
-    public static ItemStack setItem(ItemStack i2)
+    public static ItemStack setItem(ItemStack i2, Skill sk,Player p)
     {
+        int l = TALSAPI.getPlayerDeta(p).getMainClass().getSkill(sk).getSkillLevel();
+
         ItemStack item = i2;
 
         ItemMeta meta = item.getItemMeta();
 
-        meta.setDisplayName("§d§m§r§3§2§l§l§r"+item.getItemMeta().getDisplayName());
+        meta.setDisplayName("§d§m§r§3§2§l§l§r"+item.getItemMeta().getDisplayName()+"§7(Lv."+l+")");
 
         item.setItemMeta(meta);
 

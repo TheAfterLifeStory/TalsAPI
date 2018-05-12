@@ -3,6 +3,7 @@ package talsapi.talsapi.listener;
 import org.bukkit.Material;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.entity.Player;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.inventory.InventoryAction;
 import org.bukkit.event.inventory.InventoryClickEvent;
@@ -59,7 +60,7 @@ public class SkillListener implements Listener {
 
         for(CreateSkill cs : plugin.cs)
         {
-            if(OpenInventory.setItem(cs.addItemStack()) == item)
+            if(OpenInventory.setItem(cs.addItemStack(),cs.setSkill(),e.getPlayer()) == item)
             {
                 cs.castSkill(e.getPlayer(), SkillName, level);
             }
@@ -124,7 +125,7 @@ public class SkillListener implements Listener {
 
         for(CreateSkill cs : plugin.cs)
         {
-            if(item == OpenInventory.setItem(cs.addItemStack()))
+            if(item == OpenInventory.setItem(cs.addItemStack(),cs.setSkill(),(Player) e.getWhoClicked()))
             {
                 e.getWhoClicked().getInventory().setItem(8,cs.addItemStack());
                 e.getWhoClicked().closeInventory();

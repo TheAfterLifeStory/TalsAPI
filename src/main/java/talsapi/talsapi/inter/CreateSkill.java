@@ -2,6 +2,7 @@ package talsapi.talsapi.inter;
 
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
+import talsapi.talsapi.api.manager.enums.Skill;
 
 public interface CreateSkill {
 
@@ -10,4 +11,6 @@ public interface CreateSkill {
     ItemStack addItemStack();
 
     talsapi.talsapi.api.manager.enums.Classes setClassses();
+
+    Skill setSkill();
 }
