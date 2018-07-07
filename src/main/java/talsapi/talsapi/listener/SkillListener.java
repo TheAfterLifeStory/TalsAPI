@@ -11,7 +11,6 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerSwapHandItemsEvent;
 import org.bukkit.inventory.ItemStack;
 import talsapi.talsapi.TALSAPI;
-import talsapi.talsapi.api.manager.OpenInventory;
 
 public class SkillListener implements Listener {
     private TALSAPI plugin = TALSAPI.getPlugin(TALSAPI.class);
