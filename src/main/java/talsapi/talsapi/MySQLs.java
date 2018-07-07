@@ -2,11 +2,11 @@ package talsapi.talsapi;
 
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
-import org.bukkit.plugin.Plugin;
-import talsapi.talsapi.api.PlayerDeta;
 import talsapi.talsapi.mysql.*;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 
 public class MySQLs {
 

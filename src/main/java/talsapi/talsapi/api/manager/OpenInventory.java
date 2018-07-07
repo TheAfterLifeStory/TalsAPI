@@ -9,7 +9,6 @@ import org.bukkit.inventory.meta.ItemMeta;
 import talsapi.talsapi.TALSAPI;
 import talsapi.talsapi.api.classes.MainClass;
 import talsapi.talsapi.api.manager.enums.Skill;
-import talsapi.talsapi.inter.CreateSkill;
 
 public class OpenInventory {
 

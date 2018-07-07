@@ -9,7 +9,6 @@ import org.bukkit.inventory.meta.ItemMeta;
 import talsapi.talsapi.MySQLs;
 import talsapi.talsapi.TALSAPI;
 import org.bukkit.entity.Player;
-import talsapi.talsapi.inter.CreateSkill;
 
 public class PlayerJoinSet implements Listener{
     private TALSAPI plugin = TALSAPI.getPlugin(TALSAPI.class);
