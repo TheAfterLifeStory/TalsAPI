@@ -7,10 +7,6 @@ import org.bukkit.entity.Player;
 import talsapi.talsapi.api.MySQLAPI;
 import talsapi.talsapi.api.PlayerDeta;
 import talsapi.talsapi.listener.PlayerJoinSet;
-import talsapi.talsapi.listener.SkillListener;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public final class TALSAPI extends JavaPlugin implements Listener {
 
@@ -53,8 +49,6 @@ public final class TALSAPI extends JavaPlugin implements Listener {
 
         //クラスを読み込む
         pjs = new PlayerJoinSet();
-        getServer().getPluginManager().registerEvents(new SkillListener(), this);
-
         //Mysql読み込み失敗時
         MySQLs.PluginStop();
 
